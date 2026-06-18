@@ -1,0 +1,25 @@
+title: The NumericCitizen Githome
+tagline: Repository overview
+description: >-
+  A command-center overview of the Numeric Citizen code repositories —
+  what each project is, at a glance.
+author: Jean-François Martin
+url: "https://githome.numericcitizen.me"
+lang: en
+timezone: America/Toronto
+
+# We ship our own layout in _layouts/, so no remote theme is needed.
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - node_modules

@@ -1,0 +1,95 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Repository catalog rendered on the home page.
+# Names + descriptions only — no links (private repos aren't publicly reachable).
+#
+# `updated` is the last push time (ISO 8601). The page renders it as a relative
+# "x ago" label in the browser.
+#
+# Descriptions marked  # inferred  had no GitHub description — edit them freely.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- section: Web Apps & Services
+  blurb: Vercel-hosted apps that power the Numeric Citizen ecosystem.
+  repos:
+    - name: dashboard
+      desc: The web dashboard covering my entire digital landscape.
+      lang: TypeScript
+      private: true
+      updated: "2026-06-02T11:09:37Z"
+    - name: bookmarks
+      desc: Home of the Bookmarks manager for Numeric Citizen.
+      lang: TypeScript
+      private: true
+      updated: "2026-06-16T10:33:59Z"
+    - name: rss-flow
+      desc: The RSS Flow web app — feed reading and curation, hosted on Vercel.
+      lang: TypeScript
+      private: true
+      updated: "2026-05-18T18:30:40Z"
+    - name: scribbles-poster
+      desc: A Vercel app built with Claude AI for publishing quick scribbles.
+      lang: JavaScript
+      private: true
+      updated: "2026-06-14T21:29:58Z"
+    - name: microblog-poster
+      desc: A Vercel app for composing and posting to Micro.blog.
+      lang: JavaScript
+      private: true
+      updated: "2026-06-14T20:05:57Z"
+    - name: voyages-photo-gallery
+      desc: Travel photo gallery, hosted on Vercel.
+      lang: TypeScript
+      private: true
+      updated: "2026-06-17T10:44:24Z"
+    - name: tasks
+      desc: A personal task-management web app.   # inferred
+      lang: TypeScript
+      private: true
+      updated: "2026-06-07T14:01:13Z"
+    - name: whois.numericcitizen.me
+      desc: The whois / identity page for the numericcitizen.me domain.   # inferred
+      lang: HTML
+      private: true
+      updated: "2025-08-07T11:32:26Z"
+
+- section: Micro.blog & Publishing
+  blurb: Tooling and archives around my Micro.blog presence.
+  repos:
+    - name: numericcitizen-archives
+      desc: Numeric Citizen archives exported from Micro.blog.
+      lang: HTML
+      private: false
+      updated: "2026-06-16T21:43:18Z"
+    - name: numericcitizen-mb-theme
+      desc: The Numeric Citizen theme plugin for Micro.blog.
+      lang: HTML
+      private: false
+      updated: "2026-05-16T12:01:30Z"
+
+- section: Websites & Consulting
+  blurb: Static sites and consulting-business properties.
+  repos:
+    - name: JFM-Services-TI
+      desc: Root of the JFM-STI.com consulting website.
+      lang: HTML
+      private: true
+      updated: "2024-10-22T00:01:11Z"
+    - name: jfm-consultant-info
+      desc: Source for the jfm-consultant.info website.
+      lang: HTML
+      private: true
+      updated: "2024-09-18T11:17:22Z"
+    - name: jfmartin67.github.io
+      desc: My official GitHub home page — this very site.
+      lang: HTML
+      private: false
+      updated: "2025-12-31T14:21:43Z"
+
+- section: Automation
+  blurb: Behind-the-scenes plumbing.
+  repos:
+    - name: n8n-workflows-backup
+      desc: Versioned backups of my n8n automation workflows.   # inferred
+      lang: ~
+      private: true
+      updated: "2026-06-14T04:06:17Z"

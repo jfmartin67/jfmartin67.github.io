@@ -1,0 +1,129 @@
+---
+layout: default
+title: The NumericCitizen Githome
+---
+
+<header class="topbar">
+  <div class="ident">
+    <div class="avatar">
+      <img src="https://github.com/jfmartin67.png?size=200" alt="Jean-François Martin" loading="eager" decoding="async">
+      <span class="avatar-frame" aria-hidden="true"></span>
+    </div>
+    <div class="ident-text">
+      <h1 class="title">The NumericCitizen <br>Githome</h1>
+      <p class="subtitle">
+        Repository overview
+        <span class="dot-sep">·</span>
+        <span id="as-of">as of …</span>
+        <svg class="pin" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+      </p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="ring" title="Repositories indexed" aria-hidden="true">
+      <svg viewBox="0 0 44 44" width="44" height="44">
+        <circle class="ring-track" cx="22" cy="22" r="18"></circle>
+        <circle class="ring-arc" cx="22" cy="22" r="18"></circle>
+      </svg>
+    </div>
+    <time id="clock" class="clock" aria-label="Current time">—:—</time>
+    <button id="theme-toggle" class="ctl" aria-label="Toggle light and dark theme" title="Toggle theme">
+      <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2.1 2.1M16.9 16.9 19 19M19 5l-2.1 2.1M7.1 16.9 5 19"/></g></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+    </button>
+    <button id="menu-toggle" class="ctl" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g></svg>
+    </button>
+  </div>
+
+  <nav id="menu" class="menu" hidden>
+    <a href="#top" class="menu-link">Top</a>
+    {% for group in site.data.repositories %}
+    <a href="#sec-{{ forloop.index }}" class="menu-link">{{ group.section }}</a>
+    {% endfor %}
+    <div class="menu-div"></div>
+    <a href="https://numericcitizen.me" class="menu-link" target="_blank" rel="noopener">numericcitizen.me ↗</a>
+    <a href="https://dashboard.numericcitizen.me" class="menu-link" target="_blank" rel="noopener">Live Dashboard ↗</a>
+  </nav>
+</header>
+
+<a id="top"></a>
+
+<figure class="quote">
+  <blockquote id="quote-text">“But better die than live mechanically a life that is a repetition of repetitions.”</blockquote>
+  <figcaption id="quote-author">— D. H. Lawrence</figcaption>
+</figure>
+
+<div class="toolbar">
+  <div class="search">
+    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></g></svg>
+    <input id="filter" type="search" placeholder="Filter repositories…" autocomplete="off" spellcheck="false" aria-label="Filter repositories">
+  </div>
+  <div class="toolbar-right">
+    <span class="stat"><b id="stat-total">0</b> repositories</span>
+    <span class="dot-sep">·</span>
+    <span class="stat"><b id="stat-private">0</b> private</span>
+    <button id="toggle-all" class="link-btn" aria-label="Collapse or expand all sections">Collapse all</button>
+  </div>
+</div>
+
+<section class="feed" id="feed">
+  {% for group in site.data.repositories %}
+  <article class="sec is-open" data-sec>
+    <button class="sec-head" aria-expanded="true" aria-controls="sec-{{ forloop.index }}">
+      <span class="sec-bar" aria-hidden="true"></span>
+      <span class="tri" aria-hidden="true"></span>
+      <span class="sec-title">{{ group.section }}</span>
+      <span class="sec-count" data-count>{{ group.repos | size }}</span>
+      <span class="sec-meta">
+        <svg class="refresh" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M20 11a8 8 0 1 0-.5 4M20 5v6h-6"/></svg>
+        <span class="ago" data-sec-latest>recently</span>
+      </span>
+    </button>
+
+    <div class="sec-panel" id="sec-{{ forloop.index }}" role="region" aria-label="{{ group.section }}">
+      <div class="sec-inner">
+        {% if group.blurb %}<p class="sec-blurb">{{ group.blurb }}</p>{% endif %}
+        <ul class="repos">
+          {% for repo in group.repos %}
+          {%- assign c = "#7d8aa0" -%}
+          {%- case repo.lang -%}
+            {%- when "TypeScript" -%}{%- assign c = "#3178c6" -%}
+            {%- when "JavaScript" -%}{%- assign c = "#e8d44d" -%}
+            {%- when "HTML" -%}{%- assign c = "#e34c26" -%}
+            {%- when "Nunjucks" -%}{%- assign c = "#3d8137" -%}
+          {%- endcase -%}
+          <li class="repo" data-repo data-name="{{ repo.name | downcase }}" data-desc="{{ repo.desc | downcase }}">
+            <div class="repo-main">
+              <div class="repo-line">
+                <span class="repo-name">{{ repo.name }}</span>
+                {% if repo.private %}
+                <span class="badge badge-private"><svg viewBox="0 0 24 24" width="11" height="11" aria-hidden="true"><path fill="currentColor" d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h1Zm2 0h8V8a4 4 0 0 0-8 0v2Z"/></svg>Private</span>
+                {% else %}
+                <span class="badge badge-public">Public</span>
+                {% endif %}
+                <span class="badge badge-new" data-new data-updated="{{ repo.updated }}" hidden>new</span>
+              </div>
+              <p class="repo-desc">{{ repo.desc }}</p>
+            </div>
+            <div class="repo-meta">
+              {% if repo.lang %}<span class="lang"><span class="lang-dot" style="--dot:{{ c }}"></span>{{ repo.lang }}</span>{% endif %}
+              <span class="ago" data-updated="{{ repo.updated }}" title="Last push {{ repo.updated | date: '%B %-d, %Y' }}">{{ repo.updated | date: "%b %-d, %Y" }}</span>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+
+  <p class="no-results" id="no-results" hidden>No repositories match that filter.</p>
+</section>
+
+<footer class="foot">
+  <span class="prompt">&gt;_</span>
+  <span>Repository overview · names &amp; descriptions only · private repos are not linked</span>
+  <span class="foot-built">built with Jekyll</span>
+</footer>
