@@ -170,19 +170,6 @@ body {
 /* ---------- Controls (top-right) ---------- */
 .controls { display: flex; align-items: center; gap: 14px; flex: none; }
 
-.ring { width: 44px; height: 44px; display: grid; place-items: center; }
-.ring svg { transform: rotate(-90deg); }
-.ring-track { fill: none; stroke: var(--line-strong); stroke-width: 2.5; }
-.ring-arc {
-  fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round;
-  stroke-dasharray: 113; stroke-dashoffset: 113;
-  filter: drop-shadow(0 0 5px var(--accent-glow));
-  transition: stroke-dashoffset 1.4s var(--ease);
-  animation: ring-spin 6s linear infinite;
-  transform-origin: 22px 22px;
-}
-@keyframes ring-spin { to { transform: rotate(360deg); } }
-
 .clock {
   font-family: var(--font-mono);
   font-weight: 500;
@@ -510,7 +497,6 @@ html[data-theme="light"] .i-moon { display: block; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
-  .controls .ring { display: none; }
   .title br { display: none; }
   .repo { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 44px; }
   .repo::before { left: 18px; top: 22px; }

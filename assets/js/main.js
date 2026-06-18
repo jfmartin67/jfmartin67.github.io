@@ -167,16 +167,6 @@
   if (total) total.textContent = repos.length;
   if (priv) priv.textContent = repos.filter(function (r) { return r.querySelector(".badge-private"); }).length;
 
-  /* ---------- Ring arc (decorative: fraction private) ---------- */
-  (function ring() {
-    var arc = document.querySelector(".ring-arc");
-    if (!arc || !repos.length) return;
-    var privateCount = repos.filter(function (r) { return r.querySelector(".badge-private"); }).length;
-    var frac = privateCount / repos.length;
-    var circ = 2 * Math.PI * 18;
-    requestAnimationFrame(function () { arc.style.strokeDashoffset = String(circ * (1 - frac)); });
-  })();
-
   /* ---------- Filter ---------- */
   var filter = document.getElementById("filter");
   var noResults = document.getElementById("no-results");
