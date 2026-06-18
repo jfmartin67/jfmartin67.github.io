@@ -2,10 +2,9 @@
 
 My official GitHub home page → **[githome.numericcitizen.me](https://githome.numericcitizen.me)**
 
-A Jekyll site styled after [dashboard.numericcitizen.me](https://dashboard.numericcitizen.me):
-a dark "mission-control" overview that catalogs my repositories with a short
-description for each. Private repos are listed by name + description only — they
-are intentionally **not** linked.
+A Jekyll site with a dark "mission-control" aesthetic that catalogs my
+repositories with a short description for each. Private repos are listed by
+name + description only — they are intentionally **not** linked.
 
 ## Structure
 
