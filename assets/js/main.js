@@ -31,6 +31,8 @@
     function draw(ts) {
       if (!running) return;
       requestAnimationFrame(draw);
+      // Matrix is a dark-mode-only effect; skip all drawing in light mode.
+      if (document.documentElement.getAttribute("data-theme") === "light") return;
       if (ts - last < 55) return;          // ~18fps, calm and cheap
       last = ts;
       rgb = getComputedStyle(document.documentElement).getPropertyValue("--matrix").trim() || rgb;
